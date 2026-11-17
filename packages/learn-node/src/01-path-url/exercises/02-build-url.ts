@@ -10,6 +10,8 @@
  * - 数组展开为重复的 key；
  * - 其他值转成字符串。
  */
+import { URL } from "node:url";
+
 export type QueryValue =
   | string
   | number
@@ -23,5 +25,22 @@ export function buildUrl(
   params: Record<string, QueryValue>,
 ): string {
   // TODO: new URL(baseUrl)，遍历 params，使用 searchParams.append
-  throw new Error('TODO: buildUrl');
+  const url = new URL(baseUrl);
+  const setSearchParams = (
+    searchParams: URLSearchParams,
+    key: string,
+    value: QueryValue,
+  ) => {
+    if (value === null || value === undefined) return;
+    if (Array.isArray(value)) {
+      value.forEach((val) => searchParams.append(key, val));
+    } else {
+      searchParams.set(key, String(value));
+    }
+  };
+  Object.keys(params).forEach((key) => {
+    setSearchParams(url.searchParams, key, params[key]);
+  });
+  return url.href;
+  // throw new Error('TODO: buildUrl');
 }

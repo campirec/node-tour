@@ -9,10 +9,15 @@
  * - relativePath 既可以是相对路径，也可以是绝对路径；
  * - 返回值必须是绝对路径。
  */
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
 export function resolveFromImportMeta(
   metaUrl: string,
   relativePath: string,
 ): string {
   // TODO: fileURLToPath(metaUrl) -> dirname(...) -> resolve(..., relativePath)
-  throw new Error('TODO: resolveFromImportMeta');
+  const url = fileURLToPath(metaUrl);
+  return resolve(dirname(url), relativePath);
+  // throw new Error("TODO: resolveFromImportMeta");
 }
