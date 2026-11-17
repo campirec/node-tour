@@ -87,6 +87,6 @@ controller.signal.addEventListener('abort', () => child.kill('SIGTERM'), {
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/07-child-process
-pnpm --filter @node-tour/learn-node test:solutions:file src/07-child-process
+pnpm --filter @node-tour/learn-node test:07-child-process
+pnpm --filter @node-tour/learn-node test:solutions:07-child-process
 ```

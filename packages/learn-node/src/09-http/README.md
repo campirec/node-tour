@@ -95,6 +95,6 @@ process.once('SIGTERM', () => {
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/09-http
-pnpm --filter @node-tour/learn-node test:solutions:file src/09-http
+pnpm --filter @node-tour/learn-node test:09-http
+pnpm --filter @node-tour/learn-node test:solutions:09-http
 ```

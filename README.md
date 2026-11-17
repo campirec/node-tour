@@ -52,8 +52,8 @@ pnpm test
 pnpm learn
 
 # 4. 只跑一个模块
-pnpm --filter @node-tour/learn-node test:file src/05-stream
-pnpm --filter @node-tour/learn-node test:solutions:file src/05-stream
+pnpm --filter @node-tour/learn-node test:05-stream
+pnpm --filter @node-tour/learn-node test:solutions:05-stream
 ```
 
 ## 常用命令

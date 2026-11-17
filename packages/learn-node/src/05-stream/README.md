@@ -82,6 +82,6 @@ for await (const chunk of readable) {
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/05-stream
-pnpm --filter @node-tour/learn-node test:solutions:file src/05-stream
+pnpm --filter @node-tour/learn-node test:05-stream
+pnpm --filter @node-tour/learn-node test:solutions:05-stream
 ```

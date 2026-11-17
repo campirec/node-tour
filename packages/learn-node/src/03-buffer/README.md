@@ -88,6 +88,6 @@ function takeMessages(buffer: Buffer): { messages: string[]; rest: Buffer } {
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/03-buffer
-pnpm --filter @node-tour/learn-node test:solutions:file src/03-buffer
+pnpm --filter @node-tour/learn-node test:03-buffer
+pnpm --filter @node-tour/learn-node test:solutions:03-buffer
 ```

@@ -83,6 +83,6 @@ console.log(buffer.byteLength); // 0，所有权已转移
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/08-worker-threads
-pnpm --filter @node-tour/learn-node test:solutions:file src/08-worker-threads
+pnpm --filter @node-tour/learn-node test:08-worker-threads
+pnpm --filter @node-tour/learn-node test:solutions:08-worker-threads
 ```

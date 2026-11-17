@@ -88,6 +88,6 @@ const valid = timingSafeEqual(
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/11-crypto
-pnpm --filter @node-tour/learn-node exec cross-env LEARN_TARGET=solution vitest run src/11-crypto
+pnpm --filter @node-tour/learn-node test:11-crypto
+pnpm --filter @node-tour/learn-node test:solutions:11-crypto
 ```

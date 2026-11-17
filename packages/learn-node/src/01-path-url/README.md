@@ -89,10 +89,10 @@ const state = callback.searchParams.get('state');
 
 ```bash
 # 只跑本模块（红测）
-pnpm --filter @node-tour/learn-node exec vitest run src/01-path-url
+pnpm --filter @node-tour/learn-node test:01-path-url
 
 # 看参考答案是否通过同一组测试
-pnpm --filter @node-tour/learn-node test:solutions:file src/01-path-url
+pnpm --filter @node-tour/learn-node test:solutions:01-path-url
 ```
 
 完成后把 `exercises/*.ts` 里的 `TODO` 实现掉，测试应全部变绿。参考答案在 `exercises/solutions/`，建议先自己写再对照。

@@ -80,6 +80,6 @@ const { address, family } = await lookup('example.com');
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/16-net-dns
-pnpm --filter @node-tour/learn-node exec cross-env LEARN_TARGET=solution vitest run src/16-net-dns
+pnpm --filter @node-tour/learn-node test:16-net-dns
+pnpm --filter @node-tour/learn-node test:solutions:16-net-dns
 ```

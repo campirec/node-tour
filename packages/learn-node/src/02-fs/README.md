@@ -91,6 +91,6 @@ try {
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/02-fs
-pnpm --filter @node-tour/learn-node test:solutions:file src/02-fs
+pnpm --filter @node-tour/learn-node test:02-fs
+pnpm --filter @node-tour/learn-node test:solutions:02-fs
 ```

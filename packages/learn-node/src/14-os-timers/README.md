@@ -78,6 +78,6 @@ const workers = Math.max(1, availableParallelism() - 1);
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/14-os-timers
-pnpm --filter @node-tour/learn-node exec cross-env LEARN_TARGET=solution vitest run src/14-os-timers
+pnpm --filter @node-tour/learn-node test:14-os-timers
+pnpm --filter @node-tour/learn-node test:solutions:14-os-timers
 ```

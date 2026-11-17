@@ -90,6 +90,6 @@ const safeEnv = Object.fromEntries(
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/06-process-cli
-pnpm --filter @node-tour/learn-node test:solutions:file src/06-process-cli
+pnpm --filter @node-tour/learn-node test:06-process-cli
+pnpm --filter @node-tour/learn-node test:solutions:06-process-cli
 ```

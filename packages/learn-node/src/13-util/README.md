@@ -87,6 +87,6 @@ const parsed = parseEnv(await readFile('.env', 'utf8'));
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/13-util
-pnpm --filter @node-tour/learn-node exec cross-env LEARN_TARGET=solution vitest run src/13-util
+pnpm --filter @node-tour/learn-node test:13-util
+pnpm --filter @node-tour/learn-node test:solutions:13-util
 ```

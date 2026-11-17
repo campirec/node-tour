@@ -19,8 +19,9 @@ pnpm test:solutions
 只跑某个模块：
 
 ```bash
-pnpm --filter @node-tour/learn-node test:file src/05-stream
-pnpm --filter @node-tour/learn-node test:solutions:file src/05-stream
+# 每个模块都有对应的测试命令，模块名与 src/ 下的目录一致
+pnpm --filter @node-tour/learn-node test:05-stream
+pnpm --filter @node-tour/learn-node test:solutions:05-stream
 ```
 
 ## 两种模式如何工作
@@ -29,9 +30,9 @@ pnpm --filter @node-tour/learn-node test:solutions:file src/05-stream
 
 ```
 exercises/
-  01-line-splitter.ts           # 题面 + TODO
-  01-line-splitter.test.ts      # 同一组测试
-  solutions/01-line-splitter.ts # 参考答案
+  01-line-splitter.ts            # 题面 + TODO
+  solutions/01-line-splitter.ts  # 参考答案
+  tests/01-line-splitter.test.ts # 同一组测试
 ```
 
 测试通过 `src/shared/load-impl.ts` 选择实现：
@@ -112,7 +113,7 @@ exercises/
 
 - 全部使用 ESM（`"type": "module"`），相对导入必须带 `.js` 扩展名。
 - 目标 Node `>=22.12`；本地已用 Node 24 验证。
-- 测试框架为 Vitest，测试与题目同目录。
+- 测试框架为 Vitest，测试统一放在对应模块的 `exercises/tests/` 目录。
 - 需要临时文件的测试使用 `src/shared/temp.ts`，自动清理。
 - 参考答案也参与类型检查，不能靠 `any` 蒙混。
 - 企业级练习中的时间、随机数、进程指标大多可注入，测试不依赖真实时钟或外部服务。
@@ -126,16 +127,16 @@ src/17-your-topic/
   README.md
   exercises/
     01-task.ts
-    01-task.test.ts
     solutions/01-task.ts
+    tests/01-task.test.ts
 ```
 
 测试开头使用：
 
 ```ts
 const impl = await loadImpl({
-  exercise: () => import('./01-task.js'),
-  solution: () => import('./solutions/01-task.js'),
+  exercise: () => import('../01-task.js'),
+  solution: () => import('../solutions/01-task.js'),
 });
 ```
 

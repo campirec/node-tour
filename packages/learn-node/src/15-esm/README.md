@@ -96,6 +96,6 @@ if (import.meta.url === pathToFileURL(process.argv[1]!).href) {
 ## 运行
 
 ```bash
-pnpm --filter @node-tour/learn-node exec vitest run src/15-esm
-pnpm --filter @node-tour/learn-node exec cross-env LEARN_TARGET=solution vitest run src/15-esm
+pnpm --filter @node-tour/learn-node test:15-esm
+pnpm --filter @node-tour/learn-node test:solutions:15-esm
 ```
