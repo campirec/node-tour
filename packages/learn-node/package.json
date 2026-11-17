@@ -1,0 +1,22 @@
+{
+  "name": "@node-tour/learn-node",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Node.js 22+ 核心模块与 API 的渐进式练习",
+  "scripts": {
+    "test": "vitest run",
+    "test:file": "vitest run",
+    "test:watch": "vitest",
+    "test:solutions": "cross-env LEARN_TARGET=solution vitest run",
+    "test:solutions:file": "cross-env LEARN_TARGET=solution vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "cross-env": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

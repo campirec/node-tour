@@ -1,0 +1,26 @@
+{
+  "name": "@node-tour/ai-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "基于 OpenAI 兼容接口的 AI Agent 实战",
+  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "start": "tsx src/cli.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start:prod": "node dist/cli.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "openai": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
