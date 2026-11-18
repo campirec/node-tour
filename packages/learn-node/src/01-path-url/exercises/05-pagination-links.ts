@@ -44,31 +44,29 @@ export function buildPaginationLinks(
   total: number,
 ): PaginationLinks {
   if (!Number.isInteger(page) || page < 1) {
-    throw new RangeError('page 必须是 >= 1 的整数');
+    throw new RangeError("page 必须是 >= 1的正整数");
   }
   if (!Number.isInteger(pageSize) || pageSize < 1) {
-    throw new RangeError('pageSize 必须是 >= 1 的整数');
+    throw new RangeError("pageSize 必须是 >= 1的正整数");
   }
   if (!Number.isInteger(total) || total < 0) {
-    throw new RangeError('total 必须是 >= 0 的整数');
+    throw new RangeError("total 必须是 > 0的正整数");
   }
+  const totalPages = Math.max(Math.ceil(total / pageSize), 1);
+  const currentPage = Math.min(page, totalPages); // 防止page越界
 
-  const totalPages = Math.max(1, Math.ceil(total / pageSize));
-  const current = Math.min(page, totalPages);
-
-  // 故意不捕获 new URL 的 TypeError：非法 baseUrl 直接冒泡
-  const toLink = (targetPage: number): string => {
+  const buildUrl = (targetPage: number): string => {
     const url = new URL(baseUrl);
-    url.searchParams.set('page', String(targetPage));
-    url.searchParams.set('pageSize', String(pageSize));
+    url.searchParams.set("page", String(targetPage));
+    url.searchParams.set("pageSize", String(pageSize));
     return url.toString();
   };
 
   return {
-    self: toLink(current),
-    first: toLink(1),
-    prev: current > 1 ? toLink(current - 1) : null,
-    next: current < totalPages ? toLink(current + 1) : null,
-    last: toLink(totalPages),
-  };
+    self: buildUrl(currentPage),
+    first: buildUrl(1),
+    prev: currentPage <= 1 ? null : buildUrl(currentPage - 1),
+    next: currentPage === totalPages ? null : buildUrl(currentPage + 1),
+    last: buildUrl(totalPages),
+  } satisfies PaginationLinks;
 }
