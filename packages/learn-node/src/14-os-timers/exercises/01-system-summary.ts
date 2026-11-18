@@ -9,15 +9,28 @@ import {
 } from 'node:os';
 
 /**
- * 练习 1：汇总系统信息。
+ * 练习 1：汇总系统信息
  *
- * 场景：健康检查、诊断接口、部署环境日志。
+ * 场景：健康检查、诊断接口、部署环境日志。需要从 node:os 读取平台、CPU、
+ * 内存、主机名和运行时间，汇总为一个结构化对象。
  *
- * 要求：
- * - platform/arch/hostname 来自 os；
- * - cpuCount 是逻辑 CPU 数；
- * - 内存以 GB 为单位，保留 1 位小数；
- * - uptimeSeconds 取整。
+ * 函数签名
+ *   getSystemSummary(): SystemSummary
+ *   - 返回：包含 platform、arch、cpuCount、totalMemoryGb、freeMemoryGb、
+ *     hostname、uptimeSeconds 的对象
+ *
+ * 示例
+ *   getSystemSummary()
+ *   => { platform: 'linux', arch: 'x64', cpuCount: 8,
+ *        totalMemoryGb: 15.6, freeMemoryGb: 7.2,
+ *        hostname: 'prod-01', uptimeSeconds: 3600 }
+ *
+ * 要求
+ *   1. platform 与 arch 来自 os.platform() 和 os.arch()；
+ *   2. cpuCount 为 os.cpus().length（逻辑 CPU 数，>= 1）；
+ *   3. 内存换算为 GB 并保留 1 位小数（Math.round(bytes / GB * 10) / 10）；
+ *   4. uptimeSeconds 取整（Math.round）；
+ *   5. hostname 来自 os.hostname()，非空。
  */
 export interface SystemSummary {
   platform: NodeJS.Platform;

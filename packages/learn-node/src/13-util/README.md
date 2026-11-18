@@ -9,7 +9,7 @@
 - `promisify` / `callbackify`：回调与 Promise 互转；
 - `inspect`：安全的调试输出，支持循环引用、BigInt、Map/Set；
 - `parseArgs`：命令行参数解析；
-- `parseEnv`：`.env` 文本解析（Node 20.12+）；
+- `parseEnv`：`.env` 文本解析（Node 22.5+）；
 - `types`：可靠的类型判断（`isProxy`、`isTypedArray` 等）；
 - `styleText`：终端颜色（Node 20.12+）；
 - `format`：`printf` 风格格式化；
