@@ -43,6 +43,32 @@ export function buildPaginationLinks(
   pageSize: number,
   total: number,
 ): PaginationLinks {
-  // TODO
-  throw new Error('TODO: buildPaginationLinks');
+  if (!Number.isInteger(page) || page < 1) {
+    throw new RangeError('page 必须是 >= 1 的整数');
+  }
+  if (!Number.isInteger(pageSize) || pageSize < 1) {
+    throw new RangeError('pageSize 必须是 >= 1 的整数');
+  }
+  if (!Number.isInteger(total) || total < 0) {
+    throw new RangeError('total 必须是 >= 0 的整数');
+  }
+
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const current = Math.min(page, totalPages);
+
+  // 故意不捕获 new URL 的 TypeError：非法 baseUrl 直接冒泡
+  const toLink = (targetPage: number): string => {
+    const url = new URL(baseUrl);
+    url.searchParams.set('page', String(targetPage));
+    url.searchParams.set('pageSize', String(pageSize));
+    return url.toString();
+  };
+
+  return {
+    self: toLink(current),
+    first: toLink(1),
+    prev: current > 1 ? toLink(current - 1) : null,
+    next: current < totalPages ? toLink(current + 1) : null,
+    last: toLink(totalPages),
+  };
 }

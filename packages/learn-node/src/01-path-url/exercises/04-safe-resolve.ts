@@ -36,5 +36,16 @@ export class PathEscapeError extends Error {
 
 export function resolveWithinRoot(root: string, userPath: string): string {
   // TODO
-  throw new Error('TODO: resolveWithinRoot');
+  // throw new Error('TODO: resolveWithinRoot');
+  if (userPath.trim() === '' || userPath.includes('\0')) throw new PathEscapeError('本文件已定义')
+
+  const targetPath = resolve(root, userPath)
+
+  const isValidPath = (path: string) => {
+    const validPath = `${root}${sep}`
+    return path.startsWith(validPath) || path === root
+  }
+  if (!isValidPath(targetPath)) throw new PathEscapeError('路径越界')
+  
+    return targetPath
 }
